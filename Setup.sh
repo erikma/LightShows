@@ -29,8 +29,9 @@ SCRIPTDIR=$(dirname "$(readlink -f "$0")")
 echo
 echo ==========================================================================
 echo Installing Python 3, curl, and build tools
+echo Plus libatlas-base-dev needed by Raspberry Pi for numeric support
 echo ==========================================================================
-sudo apt-get install -y curl build-essential python3 python3-pip
+sudo apt-get install -y curl build-essential python3 python3-pip libatlas-base-dev
 
 echo
 echo ==========================================================================
@@ -38,20 +39,19 @@ echo Installing Visual Studio Code
 echo https://code.visualstudio.com/docs/setup/linux
 echo ==========================================================================
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
+sudo install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
 sudo apt-get update
-sudo apt-get install -y code
+#sudo apt-get install -y code
 
 echo ""
 echo ==========================================================================
 echo Ensuring we have needed Python packages:
 echo   pylint - Linter for Python, useful in Visual Studio Code.
 echo   BiblioPixel - https://github.com/ManiacalLabs/BiblioPixel
-echo   spidev - Hardware-driven SPI interface to ensure smoothness.
 echo ==========================================================================
-echo.
-pip3 install pylint bibliopixel spidev
+echo ""
+pip3 install pylint bibliopixel
 
 chmod +x ./Init.sh
 ./Init.sh
