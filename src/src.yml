@@ -16,15 +16,15 @@ shape: 64
 
 
 # The `driver` section describes the hardware outputs you are using.
+# https://github.com/ManiacalLabs/BiblioPixel/wiki/Drivers
 
 driver:
-  # SPI driver for SPI bus on Raspberry Pi.
-  typename: .serial
+  # SimPixel for testing. Uncomment here and comment the rest of this section to use.
+  # simpixel
 
-  # Adafruit LPD8806 32-LED strips
-  ledtype: LPD8806
-  c_order: GRB
-  gamma: 2.5
+  # Direct LPD8806 driver - Adafruit LPD8806 32-LED strips
+  # https://github.com/ManiacalLabs/BiblioPixel/wiki/LPD8806
+  typename: LPD8806
 
 # This is the animation section, which describes how your lights change over
 # time.
@@ -33,7 +33,6 @@ animation:
   typename: sequence
   length: 10
   animations:
-    - $bpa.matrix.bloom
     - src.Src
 
 

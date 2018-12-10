@@ -49,9 +49,10 @@ echo ==========================================================================
 echo Ensuring we have needed Python packages:
 echo   pylint - Linter for Python, useful in Visual Studio Code.
 echo   BiblioPixel - https://github.com/ManiacalLabs/BiblioPixel
+echo   spidev - Hardware SPI control for speed
 echo ==========================================================================
 echo ""
-pip3 install pylint bibliopixel
+pip3 install pylint bibliopixel spidev
 
 chmod +x ./Init.sh
 ./Init.sh
