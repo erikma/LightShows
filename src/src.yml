@@ -24,7 +24,7 @@ driver:
 
   # Direct LPD8806 driver - Adafruit LPD8806 32-LED strips
   # https://github.com/ManiacalLabs/BiblioPixel/wiki/LPD8806
-  typename: LPD8806
+  typename: lpd8806
 
 # This is the animation section, which describes how your lights change over
 # time.
