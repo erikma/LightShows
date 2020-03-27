@@ -15,6 +15,7 @@ A project for controlling LED light strips, using:
 1. Create a new folder: `mkdir c:\LightShows`
 1. Move to that folder: `cd c:\LightShows`
 1. Clone the Git repo to your new folder: `git clone https://github.com/erikma/LightShows.git .`
+1. Windows: Run `Setup.cmd`. Linux: Run `Setup.sh`.
 
 ## Running the code on your Raspberry Pi
 The src/ folder contains a BiblioPixel project 'src' including its configuration file. Various .py files are custom animations that are configured in the yml file as a shuffled slideshow-like series. Run `bp src.yml` to run the animation.

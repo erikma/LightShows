@@ -54,8 +54,31 @@ echo ==========================================================================
 echo ""
 pip3 install pylint bibliopixel spidev
 
-chmod +x ./Init.sh
-./Init.sh
+
+echo
+echo ==========================================================================
+echo Adding aliases to .bash_aliases for easier command line experience
+echo ==========================================================================
+echo
+cat >> ~/.bash_aliases <<EOF
+
+# Developer aliases added by LightShow Setup.sh
+alias master='git checkout master'
+alias pull='git pull'
+alias branch='git branch'
+alias status='git status'
+alias curbranch='git rev-parse --abbrev-ref HEAD'
+alias push='git push --set-upstream origin \$(curbranch)'
+alias ..='cd ..'
+alias ...='cd .. && cd ..'
+alias ....='cd .. && cd .. && cd ..'
+alias step='git commit -am step'
+
+cb() { git checkout dev/\$USER/\${1} ; }
+
+nb() { git checkout master && git checkout -b dev/\$USER/\${1} ; }
+EOF
+
 
 echo
 echo ==========================================================================
